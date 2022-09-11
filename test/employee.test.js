@@ -1,3 +1,4 @@
+const { describe } = require("yargs");
 const Employee = require("../lib/employee");
 const obj =  new Employee("Bob", 20, "bob@gmail.com")
 describe("Employee", () => {
@@ -15,5 +16,9 @@ describe("Employee", () => {
         it("should return an object containing the employee's email address", () => {
             expect(obj.email).toEqual("bob@gmail.com");
         })
+    })
+
+    describe("getName", () => {
+        
     })
 })
