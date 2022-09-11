@@ -4,6 +4,12 @@ const jest = require ('jest')
 inquirer
     .prompt([
         {
+            type: 'choice',
+            message: 'Choose the role to enter data for',
+            name: 'role',
+            choices: ['Team manager', 'Engineer', 'Intern']
+        },
+        {
             type: 'input',
             message: 'Enter the name of the team manager',
             name: 'manager',
@@ -36,7 +42,7 @@ inquirer
     }
 
     function internPrompt() {
-        
+
     }
 
     function finishPrompt(){
