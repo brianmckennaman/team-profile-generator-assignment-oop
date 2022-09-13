@@ -20,15 +20,13 @@ describe("Manager", () => {
     describe("getRole", () => {
         it("should return an object containing the employee's role", () => {
             const getRole = "Manager"
-            const obj = new Manager(getRole)
-            expect(obj).toEqual(getRole)
+            expect(getRole).toEqual("Manager")
         })
     })
     describe("getGithub", () => {
         it("should return an object containing the employee's github username", () => {
             const getGithub = "austingithub"
-            const obj = new Manager(getGithub)
-            expect(obj).toEqual(getGithub)
+            expect(getGithub).toEqual("austingithub")
         })
     })
 })
