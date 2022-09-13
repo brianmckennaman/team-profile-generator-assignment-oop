@@ -1,4 +1,3 @@
-const { describe } = require("yargs");
 const Employee = require("../lib/employee");
 const obj =  new Employee("Bob", 20, "bob@gmail.com")
 describe("Employee", () => {
@@ -19,6 +18,6 @@ describe("Employee", () => {
     })
 
     describe("getName", () => {
-        
+
     })
 })

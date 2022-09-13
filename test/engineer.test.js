@@ -19,4 +19,18 @@ describe("Engineer", () => {
             expect(obj.email).toEqual("steve@gmail.com");
         })
     })
+    describe("getRole", () => {
+        it("should return an object containing the employee's role", () => {
+            const getRole = "Engineer"
+            const obj = new Engineer(getRole)
+            expect(obj).toEqual(getRole)
+        })
+    })
+    describe("getGithub", () => {
+        it("should return an object containing the employee's github username", () => {
+            const getGithub = "stevegithub"
+            const obj = new Manager(getGithub)
+            expect(obj).toEqual(getGithub)
+        })
+    })
 })

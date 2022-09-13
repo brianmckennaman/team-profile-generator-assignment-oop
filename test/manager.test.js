@@ -1,9 +1,10 @@
 const Manager = require("../lib/manager")
-const obj = new Manager ("Austin", 50, "austin@gmail.com")
+const objName = "Austin"
+const obj = new Manager (objName, 50, "austin@gmail.com")
 describe("Manager", () => {
     describe("Name", () => {
         it("should return an object containing the engineer's name", () => {
-            expect(obj.name).toEqual("Austin")
+            expect(obj.name).toEqual(objName)
         })
     })
     describe("id", () => {
@@ -14,6 +15,20 @@ describe("Manager", () => {
     describe("Email", () => {
         it("should return an object containing the employee's email address", () => {
             expect(obj.email).toEqual("austin@gmail.com");
+        })
+    })
+    describe("getRole", () => {
+        it("should return an object containing the employee's role", () => {
+            const getRole = "Manager"
+            const obj = new Manager(getRole)
+            expect(obj).toEqual(getRole)
+        })
+    })
+    describe("getGithub", () => {
+        it("should return an object containing the employee's github username", () => {
+            const getGithub = "austingithub"
+            const obj = new Manager(getGithub)
+            expect(obj).toEqual(getGithub)
         })
     })
 })

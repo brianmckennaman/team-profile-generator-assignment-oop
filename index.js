@@ -1,5 +1,5 @@
 const inquirer = require('inquirer')
-const jest = require ('jest')
+const fs = require('fs')
 
 inquirer
     .prompt([
@@ -36,6 +36,11 @@ inquirer
             name: 'add team members'
         }
     ])
+    .then((response) => {
+        fs.writeFile('index.html',
+        // add html skeleton here 
+        (err) => err ? console.error(err) : console.log('Success!'))
+    })
 
     function engineerPrompt() {
 
