@@ -9,7 +9,12 @@ const responseArray = []
 // prompt to input team manager data
 inquirer
     .prompt([
-            {
+        {
+            type: 'input',
+            message: 'Enter "Team Manager"',
+            name: 'role'
+        },
+        {
             type: 'input',
             message: 'Enter the name of the team manager',
             name: 'manager',
@@ -31,7 +36,7 @@ inquirer
         },
     ])
     .then((response) => {
-        const obj = new Manager (response.manager, response.id, response.email, response.office);
+        const obj = new Manager (response.manager, response.id, response.email, response.office, response.role);
         console.table(obj);
         responseArray.push(obj);
         console.log(responseArray);
@@ -67,7 +72,11 @@ inquirer
     function engineerPrompt() {
         inquirer
         .prompt([
-            
+                {
+                    type: 'input',
+                    message: 'Enter "Engineer"',
+                    name: 'role'
+                },
                 {
                     type: 'input',
                     message: 'Enter the name of the engineer',
@@ -91,7 +100,7 @@ inquirer
             
         ])
         .then((response) => {
-            const obj = new Engineer(response.engineer, response.id, response.email, response.github)
+            const obj = new Engineer(response.engineer, response.id, response.email, response.github, response.role)
             responseArray.push(obj)
             console.log(responseArray)
             restart();
@@ -102,7 +111,11 @@ inquirer
     function internPrompt() {
         inquirer
         .prompt([
-            
+                {
+                    type: 'input',
+                    message: 'Enter "Intern"',
+                    name: 'role'
+                },
                 {
                     type: 'input',
                     message: 'Enter the name of the intern',
@@ -126,7 +139,7 @@ inquirer
             
         ])
         .then((response) => {
-            const obj = new Intern(response.intern, response.id, response.email, response.school)
+            const obj = new Intern(response.intern, response.id, response.email, response.school, response.role)
             responseArray.push(obj)
             console.log(responseArray)
             restart();
@@ -137,14 +150,13 @@ inquirer
         const finalArray = []
         for (let i = 0; i < responseArray.length; i++) {
             const card = `<div class="w3-card-2 w3-center" style="width: 50%; height: 20%;">
-            <header class="w3-container w3-teal" style="height: 20px">${responseArray[i].name}</header>
+            <header class="w3-container w3-teal" style="height: 20px">${responseArray[i].role}: ${responseArray[i].name}</header>
             <p class="w3-container w3-center">
-                <ul>${responseArray[i].id}</ul>
-                <ul>${responseArray[i].email}</ul>
+                <ul>Employee ID: ${responseArray[i].id}</ul>
+                <ul>Email: ${responseArray[i].email}</ul>
                 <ul>${responseArray[i].office||responseArray[i].github||responseArray[i].school}</ul>
             </p>
         </div>`
-            
             finalArray.push(card)
         }
         fs.writeFile('./dist/index.html', 
@@ -161,7 +173,7 @@ inquirer
             <header class="w3-container w3-blue w3-margin-bottom" style="height: 100px;" >
                 <h1 class="w3-center">Team Members</h1>
             </header>
-            <div class="w3-container" style="justify-content: center">
+            <div class="w3-container" style="justify-items: center;">
                 ${finalArray}
             </div>
         </body>
